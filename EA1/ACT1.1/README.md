@@ -31,7 +31,32 @@ cd AUY1105-Infraestructura-como-codigo-II
 ```bash
 code .
 ```
-- Realiza un cambio pequeño, como corregir un comentario, actualizar documentación o modificar una línea de código simple.
+- Realiza un cambio pequeño, como corregir un comentario, actualizar documentación o modificar una línea de código simple. Por ejemplo, en el archivo **provider.tf** podrías mejorar la manera en la que se declara el provider:
+
+**ANTES**
+
+```bash
+provider "aws" {
+  region = "us-east-1"
+}
+```
+
+**DESPUÉS**
+```bash
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+```
+
 - Guarda los cambios y ejecuta los siguientes comandos para hacer commit y subir los cambios:
 ```bash
 git add .
@@ -46,3 +71,15 @@ git push origin main
 - Haz clic en Create pull request.
 
 [GitHub Docs: Create a Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+
+## TRABAJO AUTÓNOMO
+
+Analiza el resto de los archivos, y observa si existen cambios que consideres se deban realizar. Realiza los cambios en tu repositorio, y genera una propuesta de tus cambios mediante un **pull request** al repositorio de la clase.
+
+## REFLEXIONES
+
+- **Fomento de buenas prácticas y estándares:** Revisar código mediante pull requests no solo asegura que las configuraciones cumplan con los estándares de calidad, sino que también promueve un enfoque estructurado para identificar problemas de seguridad y eficiencia en el uso de Terraform para AWS.
+
+- **Desarrollo de habilidades colaborativas**:** Esta práctica resalta la importancia del trabajo en equipo y el uso efectivo de herramientas como GitHub para mejorar la infraestructura como código, facilitando un entorno de aprendizaje compartido.
+
+- **Preparación para entornos profesionales:** Al simular escenarios reales de revisión de código, los estudiantes se preparan para enfrentar desafíos en proyectos del mundo laboral, donde la revisión minuciosa y las sugerencias constructivas son clave para la implementación exitosa de sistemas complejos.

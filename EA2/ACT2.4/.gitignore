@@ -6,7 +6,6 @@
 *.tfplan
 
 # Terraform variable files con datos sensibles
-*.tfvars
 *.tfvars.json
 
 # Override files (opcional)
